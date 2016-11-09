@@ -1,0 +1,18 @@
+{
+  "name": "spa-prerender",
+  "version": "1.0.0",
+  "description": "prerender single page applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrey Solovev andreysoloweb@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "events": "^1.1.1",
+    "sanitize-html": "^1.13.0",
+    "strip-js": "^1.0.0",
+    "system": "^1.1.1"
+  }
+}
