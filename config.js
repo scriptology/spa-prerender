@@ -1,7 +1,5 @@
-var system = require("system")
-
 // 8001
-exports.port = system.env.PORT || 8001
+exports.port = 8001
 
 // 2 seconds
 exports.maxTime = 10000
@@ -14,5 +12,3 @@ exports.readyEvent = "load"
 
 // don't load images
 exports.loadImages = false
-
-console.log('Press Ctrl+C to stop.');
