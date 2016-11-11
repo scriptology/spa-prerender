@@ -9,10 +9,20 @@
   "author": "Andrey Solovev andreysoloweb@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "Buffer": "0.0.0",
+    "amqp": "^0.2.6",
+    "amqplib": "^0.5.0",
+    "assert": "^1.4.1",
     "cheerio": "^0.22.0",
+    "emitter": "0.0.5",
     "events": "^1.1.1",
+    "node-amqp": "^1.2.1",
     "sanitize-html": "^1.13.0",
+    "stream": "0.0.2",
     "strip-js": "^1.0.0",
-    "system": "^1.1.1"
+    "system": "^1.1.1",
+    "url": "^0.11.0",
+    "webpage": "^0.3.0",
+    "webserver": "^1.1.2"
   }
 }

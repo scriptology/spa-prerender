@@ -1,3 +1,4 @@
+
 var system    = require("system")
 var webserver = require("webserver")
 var webpage   = require("webpage")
@@ -10,6 +11,7 @@ var argv      = require('minimist')(args, {
     'loadImages': 'load_images'
   }
 });
+
 
 
 var stripJs = require('strip-js');
@@ -91,7 +93,7 @@ function onRequest(req, res) {
     send(200, page.content)
   }
 
-  var timeout = setTimeout(page.onCallback, maxTime)
+  var timeout = setTimeout(page.onCallback, maxTime);
 
   page.open(href)
 
@@ -99,23 +101,13 @@ function onRequest(req, res) {
     clearTimeout(timeout)
 
     var hostArr = href.split("/");
-    var host = hostArr[0] + "//" + hostArr[2]
+    var host = hostArr[0] + "//" + hostArr[2];
     console.log(host);
 
-    // var doctype = document.implementation.createDocumentType( 'html', '', '');
-    // var dom = document.implementation.createDocument('', 'html', doctype);
-    // dom.innerHTML = "<head><base></base></head><body><a href='dd'>link</a></body>";
-    // var rootElement = dom.documentElement;
-    // var firstTier = rootElement.childNodes;
-    // var base = firstTier[0].getElementsByTagName("base")[0];
-    // console.log(base);
+    var $ = cheerio.load(data);
 
 
-    var $ = cheerio.load(data)
-
-
-
-    $('base').attr('href', host + '/')
+    $('base').attr('href', host + '/');
 
     $('link').each(function(i, elem) {
         var href = $(this).attr("href");
@@ -139,7 +131,7 @@ function onRequest(req, res) {
     res.write(safeHtml);
 
     res.close();
-    page.close()
+    page.close();
     console.log('close page');
   }
 }
