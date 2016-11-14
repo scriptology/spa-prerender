@@ -11,6 +11,7 @@
   "dependencies": {
     "amqp": "^0.2.6",
     "cheerio": "^0.22.0",
+    "colors": "^1.1.2",
     "create-file": "^1.0.1",
     "emitter": "0.0.5",
     "node-amqp": "^1.2.1",
@@ -18,7 +19,7 @@
     "phantom": "^2.1.21",
     "sanitize-html": "^1.13.0",
     "stream": "0.0.2",
-    "strip-js": "^1.0.0",
+    "strip-js": "^1.0.3",
     "system": "^1.1.1",
     "url": "^0.11.0"
   }

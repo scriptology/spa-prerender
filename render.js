@@ -2,18 +2,19 @@ let phantom   = require("phantom");
 let stripJs = require('strip-js');
 let cheerio = require('cheerio');
 let createFile = require('create-file');
-let config = require("./configRender");
+let config = require("./config/configRender");
+let colors = require('colors');
 
 // saveFile
 let makeFilePath = function(url) {
     let u = url.replace(/.*?:\/\//g, "");
-    let domain = u.split('/')[0];
-    let path = u.replace(domain + '/', '');
-    console.log('./files/' + path);
-    if(path.split("").splice(-1) == '/') {
+    console.log(u);
+    let host = u.split('/')[0];
+    let path = u.replace(host + '/', '');
+    if(path.split("").splice(-1) == '/' || !path) {
         path = `${path}index`
     }
-    return `./files/${path}.html`;
+    return `./files/${host}/${path}.html`;
 }
 
 let renderPage = (url) => {
@@ -82,9 +83,8 @@ let renderPage = (url) => {
 
                 var safeHtml = stripJs($.html())
 
-                //console.log(safeHtml);
                 createFile(makeFilePath(url), safeHtml, function (err) {
-                    console.log('file saved');
+                    console.log('File saved'.green);
                     resolve(safeHtml);
                 });
 

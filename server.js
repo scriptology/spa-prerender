@@ -1,6 +1,6 @@
 
 var nodemon = require('nodemon');
-nodemon.config = './nodemon.json';
+nodemon.config = './config/nodemon.json';
 
 nodemon({
   script: 'consumer.js',
