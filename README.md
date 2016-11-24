@@ -14,3 +14,9 @@ node server --queue render
 ```
 node send
 ```
+От клиента можно отправить уведомление о завершении загрузки данных
+```
+if (typeof window.callPhantom === 'function') {
+  window.callPhantom({ loaded: true });
+}
+```
