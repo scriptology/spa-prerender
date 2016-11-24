@@ -3,8 +3,9 @@
 let amqp = require('amqp');
 let renderPage = require('./render');
 
-let connectOptions = require('./connectOptions.js');
+let connectOptions = require('./parameters.js');
 let connection = amqp.createConnection(connectOptions);
+
 //add this for better debuging
 connection.on('error', function(e) {
     console.log("Error from amqp: ", e);
@@ -14,11 +15,11 @@ connection.on('error', function(e) {
 connection.on('ready', function() {
     // Use the default 'amq.topic' exchange
     console.log("ready");
-    connection.queue('render', {
+    connection.queue(process.env.QUEUE, {
         durable: true,
         autoDelete: false
     }, function(q) {
-        console.log("connection queue");
+        console.log("connection queue: " + q.name);
         // Catch all messages
         q.bind('#');
 

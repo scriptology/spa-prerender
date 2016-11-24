@@ -2,6 +2,9 @@
 var nodemon = require('nodemon');
 nodemon.config = './config/nodemon.json';
 
+var api_arg = process.argv.indexOf("--queue");
+process.env.QUEUE = (api_arg > -1 ? process.argv[api_arg + 1] : false) || 'test';
+
 nodemon({
   script: 'consumer.js',
   ext: 'js json'

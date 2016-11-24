@@ -3,7 +3,7 @@
 let amqp = require('amqp');
 let urls = require('./testUrls.js')
 
-let connectOptions = require('./connectOptions.js');
+let connectOptions = require('./parameters.js');
 
 let connection = amqp.createConnection(connectOptions);
 
